@@ -1,16 +1,19 @@
-class LeadsController < ActionController::Base
+class LeadsController < ApplicationController
+ skip_before_filter  :verify_authenticity_token
 	
 	def new 
 		if request.xhr? 
+			@home = Home.find(params[:id])
 			render '_create_lead' , layout: false 
 		else 
-			render 
+			redirect
 		end 
-		#in here, we are going to show the form and send over the partial 
 	end 
 		
 	def create 
-		#create a form and then 
+		@lead = Lead.create(first_name: params["lead"]["first_name"], last_name: params["lead"]["last_name"], email_address: params["lead"]["email_address"])
+		@home = Home.find(params[:id])
+		@lead.homes << @home
 	end 	
 
 end
