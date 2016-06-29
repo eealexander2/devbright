@@ -4,6 +4,4 @@ class HomesController < ActionController::Base
 		@homes = Home.all
 	end 
 		
-
-
 end

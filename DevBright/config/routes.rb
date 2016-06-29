@@ -4,9 +4,12 @@ Rails.application.routes.draw do
 
   resources :homes
 
-  resources :leads do 
-    resources :homes 
-  end  
+  # get routes 
+  get '/homes/:id/leads', to: 'leads#new' 
+  post '/homes/:id/leads',to: 'leads#create' 
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
