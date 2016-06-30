@@ -30,7 +30,7 @@ $(document).ready(function(){
 	  })
 	})	 
 
-	$('.search').on('submit', function(event){
+	$('.container').on('submit', '.search', function(event){
 	 	event.preventDefault();	
 		var url = $(this).attr('action')	
 		var data =$(this).serialize();
