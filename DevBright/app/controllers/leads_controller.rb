@@ -11,9 +11,15 @@ class LeadsController < ApplicationController
 	end 
 		
 	def create 
-		@lead = Lead.create(first_name: params["lead"]["first_name"], last_name: params["lead"]["last_name"], email_address: params["lead"]["email_address"])
-		@home = Home.find(params[:id])
-		@lead.homes << @home
+	  if request.xhr? 
+	  	p "WE GOT HERE!!!"
+			@lead = Lead.create(first_name: params["lead"]["first_name"], last_name: params["lead"]["last_name"], email_address: params["lead"]["email_address"])
+			@home = Home.find(params[:id])
+			@lead.homes << @home
+			render '_request_info', layout: false 
+		else 
+			redirect @homes
+		end 	
 	end 	
 
 end

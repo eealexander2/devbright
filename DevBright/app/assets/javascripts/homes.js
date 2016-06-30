@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	$('.creator').on('click', function(event){	
+	$('.container').on('click', '.creator', function(event){	
 		var id = $(this).attr('id');
 		event.preventDefault();
 		var $link = $(this);
@@ -13,12 +13,41 @@ $(document).ready(function(){
 	 request.done(function(response){
 			$('.' + id + '').append(response); 
 		})
-
-
-
 	})
 
-	//you could do event.preventDefault(); and then send over a partial. let's not use a partial 
+	$('.container').on('submit', '.more-info', function(event){
+		event.preventDefault();
+		var data = $(this).serialize(); 
+	  var url = $(this).attr('action'); 
+	 	var request = $.ajax({
+	 		method: "POST", 
+	 		url: url,  
+	 		data: data 
+	  });
+	  request.done(function(response){	  	
+	  	$('.more-info').hide();
+	    $('.creator').show();
+	  })
+	})	 
 
+	$('.search').on('submit', function(event){
+	 	event.preventDefault();	
+		var url = $(this).attr('action')	
+		var data =$(this).serialize();
+	   var request = $.ajax({
+	   	method: "GET",
+	   	url: url, 
+	   	data: data 
+	 	});
+	  request.done(function(response){
+	 		$('.home-list').hide(); 
+	 		$('.container').append(response); 
+		});
+
+	}) 
+
+
+	//you could do event.preventDefault(); and then send over a partial. let's not use a partial 
+ // you can also prevent the default of the get request from happening here. 
 
 })
