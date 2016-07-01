@@ -8,13 +8,12 @@ class HomesController < ApplicationController
 			  render '_find_home', layout: false 
 			else 
 				@homes = Home.all 
-				@message = "Sorry, we could not find the result you were looking for. Please search again!"
+				@message = "Sorry, we could not find the home you were looking for! "
 	  		render '_find_home', layout: false 
 	  	end
 	  else 
 			@homes = Home.all 
 	  end 	
-
 	end 
 		
 end

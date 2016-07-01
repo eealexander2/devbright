@@ -10,10 +10,10 @@ $(document).ready(function(){
 			method: "GET", 
 			url: url
 		}); 
-	 request.done(function(response){
+	  request.done(function(response){
 			$('.' + id + '').append(response); 
-		})
-	})
+		});
+	});
 
 	$('.container').on('submit', '.more-info', function(event){
 		event.preventDefault();
@@ -27,10 +27,10 @@ $(document).ready(function(){
 	  request.done(function(response){	  	
 	  	$('.more-info').hide();
 	    $('.creator').show();
-	  })
-	})	 
+	  });
+	});	 
 
-	$('.search').on('submit', function(event){
+	$('.second-container').on('submit', '.search', function(event){
 	 	event.preventDefault();	
 		var url = $(this).attr('action')	
 		var data =$(this).serialize();
@@ -41,13 +41,8 @@ $(document).ready(function(){
 	 	});
 	  request.done(function(response){
 	 		$('.home-list').hide(); 
-	 		$('.container').append(response); 
+	 		$('.second-container').append(response); 
+	 		$('.fadeOut').fadeOut(3300);
 		});
-
-	}) 
-
-
-	//you could do event.preventDefault(); and then send over a partial. let's not use a partial 
- // you can also prevent the default of the get request from happening here. 
-
-})
+	}); 
+});

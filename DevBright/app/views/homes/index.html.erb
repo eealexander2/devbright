@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,56 +14,49 @@
     <link href="2-col-portfolio.css" rel="stylesheet">
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
- <div class="container">
 
-  <form class = "search" action = '/homes' method = 'GET'>
-    <div class = "row">
-    <div class="form-element">
-       <input type = 'text' name = 'home[title]'>
-    </div>
-   <div class="form-element">
-    <input type = 'submit' value = 'Search'>
-   </div>
-    </div> 
-  </form>
+<div class="container">
+  <div class = "second-container"> 
 
-        <!-- Page Header -->   
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <p class="navbar-text navbar-right">Elizabeth Alexander</p>
+          <form class = "search" action = '/homes' method = 'GET'>
+            <div class = "row">
+              <div class="form-element, navbar-text navbar-left">
+                <input class = "entryBox" type = 'text' name = 'home[title]'>
+                <input class = "myButton" type = 'submit' value = 'Search Homes'>
+              </div>     
+            </div> 
+          </form>
+      </div>
+    </nav>
+
   <div class = "home-list" > 
     <%@homes.each do |home|%>
       <div class = "<%=home.id%>"> 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><%=home.title%>
-                    <small><%=home.sale_price%></small>
-                    <small><%=home.bedrooms%></small> 
-                    <small><%=home.zip%></small>
-                </h1> 
+                <h1 class="page-header"><%=home.title%></h1> 
+                <h2>Asking Price: <%=home.sale_price%></h2> 
+                <h2>Number of Bedrooms: <%=home.bedrooms%></h2> 
+                <h2>Neighborhood Zip Code: <%=home.zip%></h2> 
             </div>
         </div> 
-    </div> 
-    <a class = "creator" id = "<%=home.id%>" href="/homes/<%=home.id%>/leads" class="btn btn-primary btn-lg">Request More Information</a>
+      </div> 
+
+      <a class = "creator" id = "<%=home.id%>" href="/homes/<%=home.id%>/leads" class="btn btn-primary btn-lg"><button class = "myButton">Request More Information</button></a>
+
     <%end%> 
   </div>   
 
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
-
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-
-
-    <!-- Modal --> 
+  </div>
 </div>
- 
-
 </body>
-
 </html>

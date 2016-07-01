@@ -2,7 +2,7 @@ class CreateHomes < ActiveRecord::Migration
   def change
     create_table :homes do |t|
       t.string :title
-      t.integer :sale_price
+      t.string :sale_price
       t.integer :zip
       t.integer :bedrooms
 

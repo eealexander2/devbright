@@ -4,7 +4,6 @@ class CreateLeads < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email_address
-      t.string :home_title
 
       t.timestamps(null:false)
     end
