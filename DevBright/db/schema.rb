@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160627023026) do
 
   create_table "homes", force: :cascade do |t|
     t.string   "title"
-    t.integer  "sale_price"
+    t.string   "sale_price"
     t.integer  "zip"
     t.integer  "bedrooms"
     t.datetime "created_at", null: false
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20160627023026) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email_address"
-    t.string   "home_title"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

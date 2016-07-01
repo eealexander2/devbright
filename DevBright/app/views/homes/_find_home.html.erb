@@ -1,19 +1,18 @@
 <div class = "home-list" > 
-  <%if @message != nil%>
-  <%=@message%>
+  <%if @message != nil %>
+  <p class = "fadeOut"><%=@message%></p> 
   <%end%>   
     <%@homes.each do |home|%>
       <div class = "<%=home.id%>"> 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><%=home.title%>
-                    <small><%=home.sale_price%></small>
-                    <small><%=home.bedrooms%></small> 
-                    <small><%=home.zip%></small>
-                </h1>
+                <h1 class="page-header"><%=home.title%></h1>
+                <h2>Asking Price: <%=home.sale_price%></h2>
+                <h2>Number of Bedrooms: <%=home.bedrooms%></h2>
+                <h2>Zip Code: <%=home.zip%></h2> 
             </div>
         </div> 
       </div> 
-      <a class = "creator" id = "<%=home.id%>" href="/homes/<%=home.id%>/leads" class="btn btn-primary btn-lg">Request More Information</a>
+      <a class = "creator" id = "<%=home.id%>" href="/homes/<%=home.id%>/leads" class="btn btn-primary btn-lg"><button class = "myButton">Request More Information</button></a>
     <%end%> 
 </div>  
